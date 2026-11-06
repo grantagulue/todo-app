@@ -14,7 +14,7 @@ type Handler struct {
 type Notes struct {
 	ID int `json:"id"`
 	Title string `json:"title"`
-	Content string `json:"content"` 
+	Content string `json:"content"`
 }
 
 func New(db *database.DB) *Handler {
@@ -40,7 +40,7 @@ func (h *Handler) HandleFetchNotes(w http.ResponseWriter, r *http.Request) {
 	if rows.Err() != nil {
 		return
 	}
-	
+
 	for rows.Next() {
 		var n Notes
 		if err := rows.Scan(&n.ID, &n.Title, &n.Content); err != nil {
