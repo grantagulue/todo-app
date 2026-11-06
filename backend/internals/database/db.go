@@ -7,11 +7,9 @@ import (
 	_ "modernc.org/sqlite"
 )
 
-
 type DB struct {
 	Pool *sql.DB
 }
-
 
 func New() *DB {
 	

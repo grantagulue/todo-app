@@ -37,6 +37,10 @@ func (h *Handler) HandleFetchNotes(w http.ResponseWriter, r *http.Request) {
 
 	var notes []Notes
 
+	if rows.Err() != nil {
+		return
+	}
+	
 	for rows.Next() {
 		var n Notes
 		if err := rows.Scan(&n.ID, &n.Title, &n.Content); err != nil {
